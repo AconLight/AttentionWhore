@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Background from './Background';
 import CardGrid from './CardGrid';
+import store from './store';
 
 class Layout extends Component {
   render() {
@@ -9,7 +10,7 @@ class Layout extends Component {
       <div>
         <Background>
             <Header />
-            <CardGrid />
+            <CardGrid store={store} />
         </Background>
       </div>
     );

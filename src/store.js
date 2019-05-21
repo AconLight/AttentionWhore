@@ -1,4 +1,4 @@
-import { observable, computed, action, decorate } from "mobx";
+import { observable, computed, action, decorate, toJS } from "mobx";
 import axios from 'axios';
 import getCampaignsRoute from './Routes';
 
@@ -32,19 +32,19 @@ class Store {
 
     campaigns = this.initCampaigns;
 
-    getCampaigns = () => {
-        this.campaigns = this.mockCampaigns;
+    getCampaigns = async () => {
         console.log('elo');
-        // axios.get(getCampaignsRoute)
-        // .then(function (response) {
-        //     this.campaigns = response.data.campaigns;
-        // })
-        // .catch(function (error) {
-        //     setTimeout(1000, () => {
-        //         this.campaigns = this.mockCampaigns;
-        //     });
-        // });
-        return true;
+        await axios.get(getCampaignsRoute)
+        .then((response) => {
+            console.log('got it');
+            this.campaigns = response.data.campaigns;
+        })
+        .catch((error) => {
+            setTimeout(() => {
+                this.campaigns = this.mockCampaigns;
+                console.log('error');
+            }, 2000);
+        });
     }
 
 }

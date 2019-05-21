@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
-import { observer } from "mobx-react";
-import store from './store';
+import { observer, inject } from "mobx-react";
+import { toJS } from 'mobx';
 
 const Div = styled.div`
   margin-top: 200px;
@@ -12,16 +12,17 @@ const Div = styled.div`
   justify-content: space-evenly;
 `;
 
-const CardGrid = (observer(class MyCardGrid extends React.Component {
-  onComponentDidMount = () => {
-    
+const CardGrid = inject('store')(observer(class MyCardGrid extends React.Component {
+  componentWillMount = async () => {
+    await this.props.store.getCampaigns();
+    console.log(toJS(this.props.store.campaigns));
   }
 
-  render = () => {
-    store.getCampaigns();
+  render() {
+    console.log(toJS(this.props.store.campaigns));
     return (
       <Div>
-        {store.campaigns.map(camp => (
+        {this.props.store.campaigns.map(camp => (
         <Card title={camp.title}/>
         ))}
       </Div>
