@@ -5,19 +5,26 @@ import getCampaignsRoute from './Routes';
 class Store {
 	mockCampaigns = [
         {
-            title: 'siema',
+            title: 'Fantasy drawings',
+            profileImg: 'https://i.ytimg.com/vi/RLmIn0sr9is/maxresdefault.jpg',
+            shortDescription: 'just wanna share my art with as many peopla as possible',
+        },
+        {
+            title: 'Krzysztof Kononowicz',
+            profileImg: 'https://www.wykop.pl/cdn/c3201142/comment_lJckK84pMOLgfZThUtAm6Q6Mtp1spmVW,w400.jpg',
+            shortDescription: 'zagłosuj by nie było niczego',
         },
         {
             title: 'siema',
+            profileImg: 'https://i.ytimg.com/vi/RLmIn0sr9is/maxresdefault.jpg',
         },
         {
             title: 'siema',
+            profileImg: 'https://i.ytimg.com/vi/RLmIn0sr9is/maxresdefault.jpg',
         },
         {
             title: 'siema',
-        },
-        {
-            title: 'siema',
+            profileImg: 'https://i.ytimg.com/vi/RLmIn0sr9is/maxresdefault.jpg',
         },
     ];
 
@@ -43,7 +50,7 @@ class Store {
             setTimeout(() => {
                 this.campaigns = this.mockCampaigns;
                 console.log('error');
-            }, 2000);
+            }, 200);
         });
     }
 
