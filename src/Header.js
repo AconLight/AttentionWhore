@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Div = styled.div`
-  z-index: 0;
-  position: fixed;
+  z-index: 1;
+  position: absolute;
   top: 0px;
   width: 100%;
   background-image: linear-gradient(to bottom, #262626, #262626);
