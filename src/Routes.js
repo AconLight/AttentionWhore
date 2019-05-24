@@ -1,4 +1,3 @@
 const route = 'backend';
-const getCampaignsRoute = `${route}/getCampaigns`;
-
-export default getCampaignsRoute;
+export const getCampaignsRoute = `${route}/getCampaigns`;
+export const getCampaignRoute = `${route}/getCampaign`;

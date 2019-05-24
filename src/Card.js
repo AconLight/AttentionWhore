@@ -14,6 +14,7 @@ const Div = styled.div`
   background-color: #444444;
 
   &:hover {
+    cursor: pointer;
     border-radius: 5px;
     margin-top: 0px;
     opacity: 1;
@@ -54,7 +55,7 @@ const Img = styled.img`
 
 class Card extends React.Component {
   render = () => (
-    <Div>
+    <Div onClick={this.props.onClick}>
       <Title>{this.props.title}</Title>
       <Img src={this.props.img} />
       <Description>{this.props.description}</Description>
