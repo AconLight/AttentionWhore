@@ -4,18 +4,19 @@ import CardGrid from './CardGrid';
 
 const Parallax = styled.div`
   perspective: 1px;
-  z-index: -2px;
+  z-index: -2;
   max-height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   overflow-x: hidden;
   overflow-y: auto;
 `;
 
 const Div = styled.div`
-  z-index: -2px;
   position: absolute;
   top: 0px;
   left: 0px;
+  z-index: -2px;
   width: 60px;
   height: 60px;
   margin-left: ${props => props.x}%;
@@ -44,20 +45,26 @@ const squares = () => {
 };
 
 class Background extends React.Component {
-  render = () => (    
-    <Parallax>
-      {squares().map((val) => (
-        <Div
-          x={val.x}
-          y={val.y}
-          w={val.w}
-          h={val.h}
-          deg={val.deg}
-        />
-      ))}
-      {this.props.children}
-    </Parallax>
-  );
+  render = () => {
+    window.scrollTo(0, 500);
+    const childrenWithProps = React.Children.map(this.props.children, child =>
+      React.cloneElement(child, { scroll: () => window.scrollTo(0, 0) })
+    );
+    return (    
+      <Parallax>
+        {squares().map((val) => (
+          <Div
+            x={val.x}
+            y={val.y}
+            w={val.w}
+            h={val.h}
+            deg={val.deg}
+          />
+        ))}
+        {childrenWithProps}
+      </Parallax>
+    );
+  }
 }
 
 export default Background;

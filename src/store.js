@@ -44,23 +44,18 @@ class Store {
     isCampaign = 0;
 
     getCampaigns = async () => {
-        await axios.get(getCampaignsRoute)
-        .then((response) => {
-            this.campaigns = response.data.campaigns;
-        })
-        .catch((error) => {
-            setTimeout(() => {
-                this.campaigns = this.mockCampaigns;
-            }, 200);
-        });
+        console.log('getcampaigns');
+        const resp = await axios.get(getCampaignsRoute(2), { crossdomain: true });
+        console.log(resp);
+        this.campaigns = resp.data;
     }
 
     getCampaign = async (id) => {
         const time = this.isCampaign === 0 ? 0 : 700;
         this.isCampaign = 0;
-        await axios.get(`getCampaignRoute/${id}`)
+        await axios.get(getCampaignRoute(id))
         .then((response) => {
-            this.campaign = response.data.campaign;
+            this.campaign = response.data;
             setTimeout(() => {
                 this.isCampaign = 1;
             }, time);

@@ -24,7 +24,7 @@ const CardGrid = inject('store')(observer(class MyCardGrid extends React.Compone
 
   cardClick = (id) => () => {
     this.props.store.getCampaign(id);
-    // scroll
+    this.props.scroll();
   }
 
   render() {
