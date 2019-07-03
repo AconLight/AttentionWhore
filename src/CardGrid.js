@@ -4,7 +4,7 @@ import Card from './Card';
 import { observer, inject } from "mobx-react";
 
 const Div = styled.div`
-  margin-top: 100px;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -12,9 +12,10 @@ const Div = styled.div`
 `; 
 
 const Roll = styled.div`
-  max-height: ${props => props.isCampaign === 0 ? '1000px' : '0px'};
+  margin-left: ${props => props.isCampaign === 0 ? '0' : '-100%'};
   overflow: hidden;
-  transition: max-height 0.7s ease-out;
+  max-width: 100vw;
+  transition: margin-left 0.7s ease-out;
 `;
 
 const CardGrid = inject('store')(observer(class MyCardGrid extends React.Component {

@@ -11,7 +11,8 @@ const Div = styled.div`
   margin: 50px;
   margin-top: 5px;
   z-index: 2;
-  background-color: #444444;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABTUlEQVQ4T32UCw7DIAxDoZ9Dtb3/rdoyOdpDbkaHNDEKOE7sUI/jaMVGa63UWotmBmvNDPZ9L+4KEJD7vgNMv/M8y7Is5bquMk1TzFpz1klwRt8egB5V4ALyb7qgywSF8SObbdsa0XOqHBSwAmit/16KnxIoZVINyt86ZWbay3XTWr95nmMOHK+hRyPlzBpgArsoAbjve6SsKK4iomTVs+I/tcY2bPgBLuubAqImtRxay3048hbsvYb//FmlsivnNXLP5WCwBrzX3BmOvOcOIBgECOJ26gxJ7a31vDOy0s7+kXJuKxgDIOXXdX30c049fEhLkYrUzYzzA5IZd1/Kh/kVcVO/vS6Q0IPhwoSxAcz9iu9GjwSA8idDJQlAehgAUhaQ97ar+dbrvYYj12eReJUQiX1vx85w5DFvMS+LznoZvHN6Dd8Yvl3MKrP+AE60kq7X82vbAAAAAElFTkSuQmCC');
+  background-color: rgba(5, 10, 10, 0.2);
 
   &:hover {
     cursor: pointer;
@@ -44,11 +45,11 @@ const Description = styled.div`
 `;
 
 const Img = styled.img`
-  margin-left: -10px;
-  width: calc(100% + 10px);
+  margin-left: 10px;
+  width: calc(100% - 30px);
   background-color: #222222;
-  border: solid 5px #222222;
-  border-radius: 20px;
+  border: solid 4px #222222;
+  border-radius: 5px;
   max-height: 150px;
   src: ${props => props.src};
 `;

@@ -4,7 +4,7 @@ import Card from './Card';
 import { observer, inject } from "mobx-react";
 
 const Div = styled.div`
-  width: 90%;
+  width: 45%;
   min-height: calc(100vh - 300px);
   opacity: 0.94;
   transition: height 0.35s ease-out, width 0.35s ease-out, opacity 0.35s ease-out, margin-top 0.35s ease-out, border-radius 0.35s ease-out;
@@ -57,9 +57,10 @@ const Img = styled.img`
 `;
 
 const Roll = styled.div`
-  max-height: ${props => props.isCampaign === 1 ? '90vh' : '0px'};
-  overflow: hidden;
-  transition: max-height 0.7s ease-out;
+  max-height: 0px;
+  width: 200%;
+  margin-left: ${props => props.isCampaign === 1 ? '0' : '100%'};
+  transition: margin-left 0.7s ease-out;
   margin-top: 170px;
 `;
 

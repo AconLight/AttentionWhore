@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import CardGrid from './CardGrid';
 
 const Parallax = styled.div`
   perspective: 1px;
@@ -17,6 +16,8 @@ const Div = styled.div`
   top: 0px;
   left: 0px;
   z-index: -2px;
+  border: #${props => 33 + Math.floor(props.y / 20)}${props => 33 + Math.floor(props.x / 20)}33 solid 10px;
+  border-radius: 12px;
   width: 60px;
   height: 60px;
   margin-left: ${props => props.x}%;

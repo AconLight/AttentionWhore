@@ -37,7 +37,7 @@ class Store {
         },
     ];
 
-    campaigns = this.initCampaigns;
+    campaigns = this.mockCampaigns;
 
     campaign = this.initCampaigns[0];
 
@@ -47,12 +47,12 @@ class Store {
         console.log('getcampaigns');
         const resp = await axios.get(getCampaignsRoute(2), { crossdomain: true });
         console.log(resp);
-        this.campaigns = resp.data;
+        // this.campaigns = resp.data;
     }
 
     getCampaign = async (id) => {
-        const time = this.isCampaign === 0 ? 0 : 700;
-        this.isCampaign = 0;
+        const time = 0;
+        this.isCampaign = 1;
         await axios.get(getCampaignRoute(id))
         .then((response) => {
             this.campaign = response.data;
@@ -61,8 +61,8 @@ class Store {
             }, time);
         })
         .catch((error) => {
-            this.campaign = this.mockCampaigns[1];
             setTimeout(() => {
+                this.campaign = this.mockCampaigns[1];
                 this.isCampaign = 1;
             }, time);
         });
