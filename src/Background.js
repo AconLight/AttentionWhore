@@ -47,7 +47,6 @@ const squares = () => {
 
 class Background extends React.Component {
   render = () => {
-    window.scrollTo(0, 500);
     const childrenWithProps = React.Children.map(this.props.children, child =>
       React.cloneElement(child, { scroll: () => window.scrollTo(0, 0) })
     );

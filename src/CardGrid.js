@@ -15,7 +15,7 @@ const Roll = styled.div`
   margin-left: ${props => props.isCampaign === 0 ? '0' : '-100%'};
   overflow: hidden;
   max-width: 100vw;
-  transition: margin-left 0.7s ease-out;
+  transition: margin-left 0.4s ease-out;
 `;
 
 const CardGrid = inject('store')(observer(class MyCardGrid extends React.Component {
@@ -25,7 +25,12 @@ const CardGrid = inject('store')(observer(class MyCardGrid extends React.Compone
 
   cardClick = (id) => () => {
     this.props.store.getCampaign(id);
-    this.props.scroll();
+    setTimeout(() => {
+      let elems = document.body.getElementsByTagName("*");
+      for (let e of elems) {
+        e.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 450);
   }
 
   render() {

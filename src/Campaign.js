@@ -60,7 +60,7 @@ const Roll = styled.div`
   max-height: 0px;
   width: 200%;
   margin-left: ${props => props.isCampaign === 1 ? '0' : '100%'};
-  transition: margin-left 0.7s ease-out;
+  transition: margin-left 0.4s ease-out;
   margin-top: 170px;
 `;
 
