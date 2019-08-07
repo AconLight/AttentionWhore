@@ -12,14 +12,28 @@ const Div = styled.div`
   transition: height 0.35s ease-out, opacity 0.35s ease-out;
 
   &:hover {
-    height: 160px;
+    height: 120px;
     opacity: 1;
     transition: height 0.35s ease-out, opacity 0.35s ease-out;
  }
 `;
 
-const Header = () => (
-  <Div />
+const LoginText = styled.div`
+  margin: 30px;
+  color: #999999;
+  font-weight: 600;
+  &:hover {
+    cursor: pointer;
+    font-weight: 700;
+  }
+`;
+
+const Header = ({switchLoginModal}) => (
+  <Div>
+    <LoginText onClick={switchLoginModal}>
+      Login
+    </LoginText>
+  </Div>
 );
 
 export default Header;

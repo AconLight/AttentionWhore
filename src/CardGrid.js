@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
 import { observer, inject } from "mobx-react";
+import CardCampaign from './CardCampaign';
 
 const Div = styled.div`
   margin-bottom: 100px;
@@ -39,8 +40,8 @@ const CardGrid = inject('store')(observer(class MyCardGrid extends React.Compone
       <Roll isCampaign={this.props.store.isCampaign}>
         <Div>
           {this.props.store.campaigns.map(camp => (
-          <Card
-            title={camp.title}
+          <CardCampaign
+            name={camp.name}
             img={camp.profileImg}
             description={camp.shortDescription}
             onClick={this.cardClick(camp.id)}

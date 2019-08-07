@@ -47,7 +47,8 @@ class Store {
         console.log('getcampaigns');
         const resp = await axios.get(getCampaignsRoute(2), { crossdomain: true });
         console.log(resp);
-        // this.campaigns = resp.data;
+        this.campaigns = resp.data;
+        
     }
 
     getCampaign = async (id) => {
